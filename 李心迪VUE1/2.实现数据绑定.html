@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="el">
+        <h1>{{title}}</h1>
+    </div>
+    <script>
+        let data = {
+            title:'1234',
+            _title:'1243'
+        }
+
+        function Vue(obj) {
+            let data = obj.data;
+            let tpl = document.querySelector(obj.el).innerHTML;
+            //绑定数据
+            Object.defineProperties(obj.data,'title',{
+                get() {
+                    return this._title;
+                },
+                set(value) {
+                    this._title = value;
+                    console.log(11111)
+                    updateView();
+                }
+            })
+
+            function updateView() {
+                let str = tpl.replace(/{{(\w+)}}/,(math,$1) =>{
+                    console.log(data[$1]);
+                    return data[$1];
+                })
+                document.querySelector(obj.el).innerHTML = str;
+            }
+            updateView();
+        }
+        let app = new Vue({
+            el:'#el',
+            data
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}1234567</h1>
+        <h1 v-text="title + '12345">123456</h1>
+        <h1 v-html="title + '12345'">1234567</h1>
+        <h1 v-once v-html="title + '12345'">123456</h1>
+        <div class="box" v-once>
+            <h1>{{title}}1234</h1>
+            <h1 v-text="title + '12345'">12345</h1>
+            <h1 v-html="title + '123456'">123456</h1>
+        </div>
+        <script src="./dist/06.js"></script>
+    </div>
+</body>
+</html>
